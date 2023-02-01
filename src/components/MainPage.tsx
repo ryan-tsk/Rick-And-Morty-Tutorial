@@ -8,18 +8,9 @@ function MainPage() {
   if (isLoading){
     return <div> Loading </div>
   }
-
-  if (data.length > 0){
-    return(
-      <Card data={data}/>
-    )
-
-
-  } else {
-    return <div>
-      Bye
-    </div>
-  }
+  return(
+    <Card data={data}/>
+  )
 }
 
 export default MainPage
