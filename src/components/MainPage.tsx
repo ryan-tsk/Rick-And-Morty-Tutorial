@@ -1,15 +1,28 @@
 import Card from './Card/Card'
+import Result from '../interface/Result'
 import useAPI from '../hooks/useAPI'
+import Search from './Search/Search'
+import { useEffect, useState } from 'react'
+import Pagination from './Pagination'
 
 
 function MainPage() {
-  const {data, isLoading, updateName} = useAPI()
-
+  const {data, isLoading, updateName, updatePage} = useAPI()
+  
   if (isLoading){
     return <div> Loading </div>
   }
+
   return(
-    <Card data={data}/>
+    <>
+      <Search updateName={updateName} updatePage={updatePage}></Search>
+      <Card data={data?.results}/>
+      <Pagination 
+        pageNumber={data?.info.pages}
+        info = {data?.info}
+        updatePageNumber = {updatePage}
+      ></Pagination>
+    </>
   )
 }
 

@@ -1,6 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import MainPage from './components/MainPage'
+import Search from './components/Search/Search'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import useAPI from './hooks/useAPI'
 
