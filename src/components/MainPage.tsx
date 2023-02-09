@@ -1,13 +1,11 @@
 import Card from './Card/Card'
-import Result from '../interface/Result'
 import useAPI from '../hooks/useAPI'
 import Search from './Search/Search'
-import { useEffect, useState } from 'react'
 import Pagination from './Pagination'
 
 
 function MainPage() {
-  const {data, isLoading, updateName, updatePage} = useAPI()
+  const {data, isLoading, updateName, updatePage, refetch} = useAPI()
   
   if (isLoading){
     return <div> Loading </div>
@@ -15,7 +13,7 @@ function MainPage() {
 
   return(
     <>
-      <Search updateName={updateName} updatePage={updatePage}></Search>
+      <Search updateName={updateName} updatePage={updatePage} refetch={refetch}></Search>
       <Card data={data?.results}/>
       <Pagination 
         pageNumber={data?.info.pages}

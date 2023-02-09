@@ -1,8 +1,10 @@
 import styles from "./Search.module.scss";
 import useAPI from "../../hooks/useAPI";
 
-const Search = ({updatePage, updateName}: {
-  updatePage : (value: number) => void, updateName : (value: string) => void}) => {
+const Search = ({updatePage, updateName, refetch}: {
+  updatePage : (value: number) => void, 
+  updateName : (value: string) => void,
+  refetch : ()=> void}) => {
 
   return (
     <div>
@@ -10,6 +12,7 @@ const Search = ({updatePage, updateName}: {
         <input onChange={ (event) => {
           updatePage(1)
           updateName(event.target.value)
+          refetch()
         }}
         placeholder="Search for Characters.."
         className={styles.input}

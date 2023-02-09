@@ -7,13 +7,8 @@ import axios from 'axios'
 function useAPI() {
   const [page, setPage] = useState<number>(1)
   const [name, setName] = useState<string>("")
-  const [fetch, setFetch] = useState<boolean>(false)
 
-  useEffect(() => {
-    setFetch(true)
-  }, [page, name])
-
-  const {data, isLoading, isError} = useQuery(['data'], async() => getData(), {enabled:fetch})
+  const {data, isLoading, isError, refetch} = useQuery(['data'], async() => getData())
 
   const getData = async () => {
     const API = `https://rickandmortyapi.com/api/character/?page=${page}&name=${name}`
@@ -31,7 +26,7 @@ function useAPI() {
     setPage(inputPage)
   }
 
-  return {data, isLoading, isError, updateName, updatePage}
+  return {data, isLoading, isError, updateName, updatePage, refetch}
 
 }
 
