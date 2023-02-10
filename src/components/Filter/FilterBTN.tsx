@@ -1,6 +1,12 @@
 import React from 'react'
 
-function FilterBTN() {
+const FilterBTN = ({input, index, name, task, updatePage, refetch}:{
+  input: string
+  index: number,
+  name:string,
+  task: (value: string)=> void,
+  updatePage: (value: number)=> void,
+  refetch: ()=> void}) => {
   return (
   <div>
     <style jsx>
@@ -11,6 +17,29 @@ function FilterBTN() {
         input[type="radio"] { display: none; }
       `}
     </style>
+    
+    <div className="form-check">
+      <input
+        className="form-check-input x"
+        type = "radio"
+        name={name}
+        id={`${name}-${index}`}
+        />
+      
+      <label
+        onClick={(x)=>{
+          task(input)
+          updatePage(1)
+          refetch()
+        }}
+        className="btn btn-outline-primary"
+        >
+        {input}
+      </label>
+
+    </div>
+
+
   </div>
   )
 }
