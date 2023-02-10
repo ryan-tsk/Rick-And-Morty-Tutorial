@@ -7,14 +7,20 @@ import axios from 'axios'
 function useAPI() {
   const [page, setPage] = useState<number>(1)
   const [name, setName] = useState<string>("")
+  const [status, setStatus] = useState<string>("")
+  const [gender, setGender] = useState<string>("")
+  const [species, setSpecies] = useState<string>("")
 
   const {data, isLoading, isError, refetch} = useQuery(['data'], async() => getData())
 
   const getData = async () => {
-    const API = `https://rickandmortyapi.com/api/character/?page=${page}&name=${name}`
+    const API = `https://rickandmortyapi.com/api/character/?page=${page}
+    &name=${name}
+    &status=${status}
+    &gender=${gender}
+    &species=${species}`
     const queryData = await axios.get(API).then(res => {return res.data})
     const {info, results} =  queryData
-    console.log(info)
     return {info, results}
   }
 
@@ -26,10 +32,20 @@ function useAPI() {
     setPage(inputPage)
   }
 
-  return {data, isLoading, isError, updateName, updatePage, refetch}
+  const updateStatus = (inputStatus: string) => {
+    setStatus(inputStatus)
+  }
+
+  const updateGender = (inputGender: string) => {
+    setGender(inputGender)
+  }
+
+  const updateSpecies = (inputSpecies: string) => {
+    setSpecies(inputSpecies)
+  }
+
+  return {data, page, isLoading, isError, updateName, updatePage, updateStatus, updateGender, updateSpecies, refetch}
 
 }
 
 export default useAPI
-
-//    const queryData = await axios.get(API).then(res => {return res.data.results})

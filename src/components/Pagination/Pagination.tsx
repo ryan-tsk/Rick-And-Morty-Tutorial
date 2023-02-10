@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from "react";
 import ReactPaginate from "react-paginate";
-import Info from "../interface/Info";
+import Info from "../../interface/Info";
 
-const Pagination = ({pageNumber, info, updatePageNumber}: 
-  {pageNumber:number, info:Info, updatePageNumber: (value:number) => void}) => {
+const Pagination = ({pageNumber, info, updatePageNumber, refetch}: 
+  {pageNumber:number, 
+   info:Info, 
+   updatePageNumber: (value:number) => void,
+   refetch: ()=> void}) => {
   
     const pageChange = (data : {selected: number}) => {
       updatePageNumber(data.selected + 1)
+      refetch()
     };
 
     const [width, setWidth] = useState(window.innerWidth);
