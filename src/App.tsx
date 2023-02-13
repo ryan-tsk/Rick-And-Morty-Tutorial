@@ -10,18 +10,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className='text-center mb-3 text-primary'> Characters </h1>
       <QueryClientProvider client={queryClient}>
-      <div className='container'>
-        <div className='row'>
-          Filter component will be placed here
-          <div className="col-lg-8 col-12">
-          <div className='row'>
             <MainPage></MainPage>
-          </div>
-          </div>
-        </div>
-      </div>
       </QueryClientProvider>
     </div>
   );

@@ -21,14 +21,4 @@ const Card = ({data}: {data:Result[]}) => {
   }
 }
 
-
-  
 export default Card
-
-//className={`${styles.card} d-flex flex-column justify-content-center`}
-/*
-    return
-      { data.map((result: Result) => {
-        return <CardDisplay {...result}/>
-    })}
-    */

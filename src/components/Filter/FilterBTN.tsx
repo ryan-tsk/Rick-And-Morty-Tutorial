@@ -36,10 +36,7 @@ const FilterBTN = ({input, index, name, task, updatePage, refetch}:{
         >
         {input}
       </label>
-
     </div>
-
-
   </div>
   )
 }
