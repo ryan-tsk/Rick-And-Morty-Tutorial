@@ -1,5 +1,6 @@
 import Status from "./Status"
 import Species from "./Species"
+import Gender from "./Gender"
 
 function Filter({page, updatePage, updateStatus, updateGender, updateSpecies, refetch}:
   {page: number, 
@@ -30,11 +31,18 @@ function Filter({page, updatePage, updateStatus, updateGender, updateSpecies, re
         <Status 
           updateStatus = {updateStatus}
           updatePage = {updatePage}
-          refetch = {refetch}/>
+          refetch = {refetch}
+        />
         <Species
           updateSpecies = {updateSpecies}
           updatePage = {updatePage}
-          refetch = {refetch}/>
+          refetch = {refetch}
+        />
+        <Gender
+          updateGender={updateGender}
+          updatePage={updatePage}
+          refetch={refetch}
+        />
       </div>
     </div>
   )
