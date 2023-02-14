@@ -1,7 +1,5 @@
 import Result from "../../interface/Result"
-import {useEffect} from 'react'
 import CardDisplay from "./CardDisplay";
-import styles from "./Card.module.scss";
 
 
 const Card = ({data}: {data:Result[]}) => {

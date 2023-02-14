@@ -1,5 +1,4 @@
 import styles from "./Search.module.scss";
-import useAPI from "../../hooks/useAPI";
 
 const Search = ({updatePage, updateName, refetch}: {
   updatePage : (value: number) => void, 

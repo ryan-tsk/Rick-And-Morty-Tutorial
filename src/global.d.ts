@@ -6,7 +6,7 @@ declare module "*.module.scss";
 
 declare module 'react' {
   interface StyleHTMLAttributes<T> extends React.HTMLAttributes<T> {
-    jsx?: boolean;
+    jsx?: string;
     global?: boolean;
   }
 }

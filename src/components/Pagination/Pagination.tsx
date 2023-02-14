@@ -25,7 +25,7 @@ const Pagination = ({pageNumber, info, updatePageNumber, refetch}:
 
     return (
       <>
-        <style jsx>
+        <style jsx="true">
           {`
             @media (max-width: 768px) {
               .pagination {

@@ -10,7 +10,7 @@ function Filter({page, updatePage, updateStatus, updateGender, updateSpecies, re
    updateSpecies: (value: string) => void
    refetch: ()=> void}) {
 
-  let clear = () => {
+  const clear = () => {
     updateStatus("")
     updateGender("")
     updateSpecies("")

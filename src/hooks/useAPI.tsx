@@ -1,7 +1,5 @@
 import {useQuery} from '@tanstack/react-query'
-import Result from '../interface/Result'
-import ResultArray from '../interface/Result'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import axios from 'axios'
 
 function useAPI() {
@@ -21,6 +19,7 @@ function useAPI() {
     &species=${species}`
     const queryData = await axios.get(API).then(res => {return res.data})
     const {info, results} =  queryData
+    console.log(API)
     return {info, results}
   }
 

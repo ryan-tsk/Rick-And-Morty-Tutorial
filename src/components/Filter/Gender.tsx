@@ -32,6 +32,7 @@ function Gender({updateGender, updatePage, refetch}: {
               <FilterBTN
                 input={item}
                 index={index}
+                key={index}
                 name="gender"
                 task={updateGender}
                 updatePage={updatePage}

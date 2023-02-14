@@ -1,4 +1,3 @@
-import React from 'react'
 
 const FilterBTN = ({input, index, name, task, updatePage, refetch}:{
   input: string
@@ -7,12 +6,13 @@ const FilterBTN = ({input, index, name, task, updatePage, refetch}:{
   task: (value: string)=> void,
   updatePage: (value: number)=> void,
   refetch: ()=> void}) => {
+  
   return (
   <div>
-    <style jsx>
+    <style jsx="true">
       {`
         .x:checked + label {
-          background-color: #0b5ed7;
+          background-color: red;
           color: white }
         input[type="radio"] { display: none; }
       `}
@@ -27,7 +27,7 @@ const FilterBTN = ({input, index, name, task, updatePage, refetch}:{
         />
       
       <label
-        onClick={(x)=>{
+        onClick={()=>{
           task(input)
           updatePage(1)
           refetch()
